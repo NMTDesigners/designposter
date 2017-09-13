@@ -83,26 +83,71 @@
 
 <script>
 
-// Resize <area> tags when their images are resized 
-imageMapResize();
+$(document).ready(function() {
+    // Resize <area> tags when their images are resized 
+    imageMapResize();
 
-// Highlight the <area> tags
-// NOTE: this does not work on resized images
-// TODO: workaround described here: https://github.com/kemayo/maphilight/issues/21
-$('img').maphilight({ 
-    alwaysOn: true,
-    strokeColor: '#444'
+    // Highlight the <area> tags
+    highlightAreaTags();
+
+    // Create tooltips that show up when hovering over an <area> on the image
+    createTooltips();
+
+    // Show a tooltip after all tooltips have loaded
+    // Must set a timeout because we can't access the qtip API until after tooltips are "lazy-loaded" 
+    setTimeout(function() { 
+        $('#good-1').qtip('api').show()
+    }, 100);
 });
 
-// Add a tooltip to the <area> with id='good-1'
-$('area#good-1').qtip({
-    content: {
-        text: 'A sample tooltip on a specific area element'
-    },
-    position: {
-        my: 'top left',
-        at: 'bottom right'
+
+function highlightAreaTags() {
+    // NOTE: this does not work on resized images
+    // TODO: workaround described here: https://github.com/kemayo/maphilight/issues/21
+    $('img').maphilight({ 
+        alwaysOn: true,
+        strokeColor: '#444',
+        fillOpacity: 0.5
+    });
+}
+
+function createTooltips() {
+    // Add a tooltip to the <area> with id='good-1'
+    var qtip_options = {
+        // Hide all others when a tooltip is activated
+        show: { solo: true },
+        
+        // Do not hide tooltip when mouse leaves
+        // Hide when clicking on the <area>
+        hide: { event: 'click' }, 
+
+        position: {
+            my: 'right bottom',
+            at: 'center center'
+        },
+
+        // Set a CSS class
+        style: 'qtip-toolbar'
+    
+    };
+
+    var tooltip_content = { 
+        '#good-1': 'sample',
+        '#good-2': 'sample 2',
+        '#good-3': 'sample 3'
+    };
+    
+    // Add s's properties to d
+    function extend(s, d) {
+        for (var key in s) {
+            d[key] = s[key];
+        }
+        return d;
     }
-});
+    
+    for (var key in tooltip_content) {
+        $('area' + key).qtip(extend(qtip_options, { content: tooltip_content[key] }));
+    }
+}
 </script>
 </html>
