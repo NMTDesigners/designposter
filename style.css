@@ -1,2 +1,38 @@
+/* Fonts */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	src: url('font/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family: 'Roboto';
+	font-style: italic;
+	font-weight: 400;
+	src: url('font/Roboto-Italic.ttf');
+}
+
+body {
+	font-family: 'Roboto';
+}
+
 .sample {
+	margin: auto;
+}
+
+p, h1, h2, h3, h4 {
+	text-align: center;
+}
+
+h1 {
+	font-size: 60px;
+	-webkit-text-stroke: 2px black;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+p {
+	font-size: 18px;
 }
