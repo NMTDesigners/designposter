@@ -4,10 +4,10 @@
     <meta charset='utf-8'>
 
     <!-- Maximum length 70 characters -->
-    <title>TODO title</title>
+    <title>Say No To Bad Design!</title>
 
     <!-- Maximum length 155 characters -->
-    <meta name='description' content='TODO description.'/>
+    <meta name='description' content='What you need to know to save your audience from bad design. A poster with suggestions for anyone who wants to attract and keep a rapt audience.'/>
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
@@ -25,9 +25,73 @@
 
     <!-- Non-Retina iPhone, iPod Touch, and Android 2.1+ devices -->
     <link rel='apple-touch-icon-precomposed' href='57.png'>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="jquery.qtip.min.css">
 </head>
 <body>
-    <main>
-    </main>
+<!-- we'll have to update the content --> 
+<main>
+<section class='good-design'>
+    <h1>Say No To Bad Design</h1>
+    <h2>What you need to know to save your audience from bad design.</h2>
+    <h3>The poster below is good design. When you see it, praise it.</h3>
+
+    <map class='sample-imagemap' name='good-sample-map'>
+        <!-- Create a circle on the img at coordinates X=300px, Y=100px
+             and radius=64 -->
+        <area id='good-1' shape='circle' coords='300,100,64' href='test'>
+    </map>
+
+    <img class='sample good-sample' usemap='#good-sample-map' src='img/campfair2012.jpg' 
+        alt='A sample poster'>
+
+    <h3>Good designers emphasize the important info. They use relevant images, good arrangement, fonts, and color to persuade their target audience while staying honest.</h3>
+
+    <img class='checkmark-logo' src=''>
+
+    <h2>Let's move on to what we've all seen before and will see again: poor design.</h2>
+</section>
+<section class='bad-design'>
+    <img class='sample bad-sample' src='ohdeargodplzno' alt='A sample poster'>
+
+    <h3>A bad design ignores the audience's culture, looks over-cluttered,
+    has low quality aesthetics, and is generally hard to comprehend.</h3>
+
+    <img class='x-logo' src=''>
+
+    <h2>Don't let visuals like this sit unchallenged. Do your part.
+    Promote effective visual communication and good design.</h2>
+</section>
+</main>
 </body>
+
+<script type="text/javascript" src="js/imageMapResizer.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.maphilight.min.js"></script>
+<script type="text/javascript" src="js/jquery.qtip.min.js"></script>
+<script>
+
+// Resize <area> tags when their images are resized 
+imageMapResize();
+
+// Highlight the <area> tags
+// NOTE: this does not work on resized images
+// TODO: workaround described here: https://github.com/kemayo/maphilight/issues/21
+$('img').maphilight({ 
+    alwaysOn: true,
+    strokeColor: '#444'
+});
+
+// Add a tooltip to the <area> with id='good-1'
+$('area#good-1').qtip({
+    content: {
+        text: 'A sample tooltip on a specific area element'
+    },
+    position: {
+        my: 'top left',
+        at: 'bottom right'
+    }
+});
+</script>
 </html>
