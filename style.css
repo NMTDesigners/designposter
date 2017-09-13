@@ -13,7 +13,33 @@
 }
 
 body {
-	font-family: 'Roboto';
+	font-family: 'Roboto' serif;
+}
+
+.section-wrapper {
+    width: 100%;
+}
+
+section {
+    margin: 0 auto;
+    width: 85%;
+    max-width: 1000px;
+}
+
+.section-wrapper.good-design {
+    background-color: white;
+}
+
+section.bad-design {
+    color: white;
+    background-color: black;
+
+    border-top: 64px solid transparent;
+    border-width: 20px 0px 64px;
+    border-image: url("img/border-top.png") 20 0 64 round;
+
+    padding: 40px 20px;
+    padding-bottom: 100%;
 }
 
 .sample {
@@ -22,6 +48,7 @@ body {
 
 p, h1, h2, h3, h4 {
 	text-align: center;
+    margin: 20px 0;
 }
 
 h1 {
@@ -31,6 +58,10 @@ h1 {
 
 h2 {
 	font-size: 30px;
+}
+
+h3 {
+	font-size: 22px;
 }
 
 p {
