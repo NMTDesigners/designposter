@@ -67,3 +67,37 @@ h3 {
 p {
 	font-size: 18px;
 }
+
+.tooltip {
+	background: #202020;
+	padding: 8px;
+	border-radius: 4px;
+	color: white;
+	width: 400px;
+}
+
+.tooltip svg {
+	position: relative;
+	left: -16px;
+	bottom: -50px;
+}
+
+.tooltip img {
+	padding: 8px;
+	float: left;
+}
+
+.tooltip p {
+	margin: 8px;
+	padding: 0;
+	text-align: left;
+}
+
+.tooltip a {
+	position: relative;
+	float: right;
+	bottom: 8px;
+	right: 8px;
+	margin-top: 2em;
+	color: white;
+}
