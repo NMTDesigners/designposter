@@ -12,25 +12,36 @@
 	src: url('font/Roboto-Italic.ttf');
 }
 
+/* Animations */
+@keyframes appear {
+	from {
+		transform: rotate(-30deg) scale(0, 0);
+	}
+	from {
+		transform: rotate(0deg) scale(0, 0);
+	}
+}
+
 body {
 	font-family: 'Roboto', serif;
 }
 
-.section-wrapper {
-    width: 100%;
+.block {
+	width: 100%;
+	padding: 4em 0 16em 0;
 }
 
 section {
     margin: 0 auto;
-    width: 85%;
-    max-width: 1000px;
+    width: 80%;
 }
 
-.section-wrapper.good-design {
+.block.good {
     background-color: white;
+    text-align: center;
 }
 
-section.bad-design {
+.block.bad {
     color: white;
     background-color: black;
 
@@ -38,12 +49,13 @@ section.bad-design {
     border-width: 20px 0px 64px;
     border-image: url("img/border-top.png") 20 0 64 round;
 
-    padding: 40px 20px;
-    padding-bottom: 100%;
+	padding: 4em 0 16em 0;
+	text-align: center;
 }
 
 .sample {
 	margin: auto;
+	width: auto;
 }
 
 p, h1, h2, h3, h4 {
@@ -68,12 +80,29 @@ p {
 	font-size: 18px;
 }
 
-.tooltip {
+.tooltip, .qtip-default {
 	background: #202020;
 	padding: 8px;
 	border-radius: 4px;
 	color: white;
-	width: 400px;
+	min-width: 100px;
+	animation: appear 0.3s;
+	transform-origin: 100% 100%;
+	border: 0;
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+
+.qtip-content::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 16px;
+	right: 0;
+	bottom: 0;
+	width: 24px;
+	height: 24px;
+	background: url("img/info.svg");
+	z-index: 5;
 }
 
 .tooltip svg {
@@ -83,21 +112,51 @@ p {
 }
 
 .tooltip img {
-	padding: 8px;
+	width: 4em;
 	float: left;
+	padding: 8px 8px 0 0;
 }
 
 .tooltip p {
 	margin: 8px;
 	padding: 0;
-	text-align: left;
+	text-align: justify;
 }
 
-.tooltip a {
+.tooltip a, .qtip-content {
 	position: relative;
 	float: right;
 	bottom: 8px;
 	right: 8px;
-	margin-top: 2em;
+	margin-top: 1em;
 	color: white;
+	font-size: 125%;
+}
+
+.qtip-content {
+	width: 50%;
+	padding-left: 4em;
+}
+
+.icon {
+	width: 75px;
+	height: 75px;
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #202020;
 }
