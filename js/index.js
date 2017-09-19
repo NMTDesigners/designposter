@@ -9,7 +9,8 @@ $(document).ready(function () {
 	createTooltips();
 
 	// Add pin images to canvas element
-	addPins(".good-sample");
+	addPins("good");
+	addPins("bad");
 
 	// Show a tooltip after all tooltips have loaded
 	// Must set a timeout because we can't access the qtip API until after tooltips are "lazy-loaded" 
@@ -18,14 +19,13 @@ $(document).ready(function () {
 	}, 100);
 });
 
-function addPins(classSearch) {
-	var can = $(classSearch + " div canvas")[0].getContext("2d");
-	for (var area of $("map.good area")) {
-		var x = parseInt(area.coords.split(",")[0]);
-		var y = parseInt(area.coords.split(",")[1]) - 20;
-		can.drawImage($("#pin")[0], x, y, 40, 40);
+function addPins(tag) {
+	var can = $("." + tag + "-sample div canvas")[0].getContext("2d");
+	for (var area of $("map." + tag + " area")) {
+		var x = parseInt(area.coords.split(",")[0]) - 25;
+		var y = parseInt(area.coords.split(",")[1]) - 25;
+		can.drawImage($("#pin."+tag)[0], x, y, 50, 50);
 	}
-	//can.drawImage($("#pin")[0], 50, 50);
 }
 
 function highlightAreaTags() {
@@ -63,9 +63,9 @@ function createTooltips() {
 	};
 
 	var tooltip_content = {
-		'#good-1': 'sample',
-		'#good-2': 'sample 2',
-		'#good-3': 'sample 3',
+		'#good-1': '283,527,32',
+		'#good-2': '244,43,32',
+		'#good-3': '305,135,32',
 		'#bad-1': 'sample 4',
 		'#bad-2': 'sample 5',
 		'#bad-3': 'sample 6'
