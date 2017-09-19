@@ -7,6 +7,12 @@
 }
 @font-face {
 	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: bold;
+	src: url('font/Roboto-Bold.ttf');
+}
+@font-face {
+	font-family: 'Roboto';
 	font-style: italic;
 	font-weight: 400;
 	src: url('font/Roboto-Italic.ttf');
@@ -62,46 +68,48 @@ section {
 	width: 100%;
 }
 
-div.sample div {
+.sample div {
 	box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
 }
 
 p, h1, h2, h3, h4 {
 	text-align: center;
-    margin: 20px 0;
+    margin: 50px 0;
 }
 
 h1 {
-	font-size: 60px;
-	-webkit-text-stroke: 2px black;
+	font-size: 6.5em;
+	font-weight: bold; /* -webkit-text-stroke: 2px black; */
 }
 
 h2 {
-	font-size: 25px;
-}
-
-h2.subsect {
-	padding: 1em 0 1em 0;
+	font-size: 2.5em;
+    font-weight: bold;
 }
 
 h3 {
-	font-size: 22px;
+	font-size: 2em;
 }
 
 p {
-	font-size: 18px;
+	font-size: 1.8em;
+}
+
+.block.bad {
+    font-size: 90%;
 }
 
 .tooltip, .qtip-default {
-	background: #202020;
+	background: white;
+    color: black;
 	padding: 8px;
 	border-radius: 4px;
-	color: white;
 	min-width: 100px;
-	animation: appear 0.3s;
+	animation: appear 0.2s;
 	transform-origin: 100% 100%;
 	border: 0;
-	box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+	box-shadow: 0px 0.2em 0.5em rgba(0,0,0,0.7);
 }
 
 .qtip-content::after {
@@ -141,12 +149,10 @@ p {
 	bottom: 8px;
 	right: 8px;
 	margin-top: 1em;
-	color: white;
 	font-size: 125%;
 }
 
 .qtip-content {
-	width: 50%;
 	padding-left: 4em;
 }
 

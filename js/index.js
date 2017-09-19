@@ -47,14 +47,13 @@ function createTooltips() {
 		},
 
 		// Do not hide tooltip when mouse leaves
-		// Hide when clicking on the <area>
 		hide: {
-			event: 'click'
+			event: ''
 		},
 
 		position: {
-			my: 'right bottom',
-			at: 'center center'
+			my: 'center bottom',
+			at: 'center top'
 		},
 
 		// Set a CSS class
@@ -63,9 +62,9 @@ function createTooltips() {
 	};
 
 	var tooltip_content = {
-		'#good-1': '283,527,32',
+		'#good-3': 'Most important information is largest on page,  but not overwhelming',
 		'#good-2': '244,43,32',
-		'#good-3': '305,135,32',
+		'#good-1': 'Everything is paper! The design is cohesive and grabs the attention of the viewer.',
 		'#bad-1': 'sample 4',
 		'#bad-2': 'sample 5',
 		'#bad-3': 'sample 6'
