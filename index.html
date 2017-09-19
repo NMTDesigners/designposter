@@ -35,15 +35,16 @@
 </head>
 
 <body>
+    <img id="pin" style="display: none;" src='img/pin.svg'>
     <!-- TODO update the content -->
     <h1>Say No To Bad Design</h1>
     <h2>What you need to know to save your audience from bad design.</h2>
     <hr></hr>
     <div class='block good'>
         <section class='good-design'>
-            <h2>The poster below is good design. When you see it, praise it.</h2>
+            <h2 class="subsect">The poster below is good design. When you see it, praise it.</h2>
 
-            <map class='sample-imagemap' name='good-sample-map'>
+            <map class='good sample-imagemap' name='good-sample-map'>
                 <!-- Create a circle on the img at coordinates X=300px, Y=100px
                     and radius=64 -->
                 <area id='good-1' shape='circle' coords='190,160,32'>
@@ -53,31 +54,40 @@
             </map>
 
             <div class='sample good-sample'>
-                <img style="position: relative; left: 190px; top: 160px; z-index: 3;" src='img/pin.svg'>
+                <!-- <img style="position: relative; left: 190px; top: 160px; z-index: 3;" src='img/pin.svg'>
                 <img style="position: relative; left: 280px; top: 530px; z-index: 3;" src='img/pin.svg'>
-                <img style="position: relative; left: 400px; top: 700px; z-index: 3;" src='img/pin.svg'>
+                <img style="position: relative; left: 400px; top: 700px; z-index: 3;" src='img/pin.svg'> -->
                 <img usemap='#good-sample-map' src='img/campfair2012.jpg' alt='A sample poster'>
             </div>
 
 
-            <h2>Good designers emphasize the important info. They use relevant images, good arrangement, fonts, and color to
+            <h2 class="subsect">Good designers emphasize the important info. They use relevant images, good arrangement, fonts, and color to
                 persuade their target audience while staying honest.</h2>
 
             <img class='icon' src='img/good.svg'>
 
-            <h2>Let's move on to what we've all seen before and will see again: poor design.</h2>
+            <h2 class="subsect">Let's move on to what we've all seen before and will see again: poor design.</h2>
         </section>
     </div>
     <div class='block bad'>
         <section class='bad-design'>
-            <img class='sample bad-sample' src='img/bad.jpg' alt='A sample poster'>
 
-            <h2>A bad design ignores the audience's culture, looks over-cluttered, has low quality aesthetics, and is generally
+            <map class='sample-imagemap' name='bad-sample-map'>
+                <area id='bad-1' shape='circle' coords='10,15,16'>
+                <area id='bad-2' shape='circle' coords='35,250,16'>
+                <area id='bad-3' shape='circle' coords='100,200,16'>
+            </map>
+
+            <div class='sample bad-sample'>
+                <img usemap='#bad-sample-map' src='img/bad.jpg' alt='A sample poster'>
+            </div>
+
+            <h2 class="subsect">A bad design ignores the audience's culture, looks over-cluttered, has low quality aesthetics, and is generally
                 hard to comprehend.</h2>
 
             <img class='icon' src='img/warning.svg'>
 
-            <h2>Don't let visuals like this sit unchallenged. Do your part. Promote effective visual communication and good design.</h2>
+            <h2 class="subsect">Don't let visuals like this sit unchallenged. Do your part. Promote effective visual communication and good design.</h2>
         </section>
     </div>
 </body>
@@ -91,79 +101,6 @@
 <!-- See http://qtip2.com/api for documentation -->
 <script type="text/javascript" src="js/jquery.qtip.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        // Resize <area> tags when their images are resized 
-        imageMapResize();
-
-        // Highlight the <area> tags
-        highlightAreaTags();
-
-        // Create tooltips that show up when hovering over an <area> on the image
-        createTooltips();
-
-        // Show a tooltip after all tooltips have loaded
-        // Must set a timeout because we can't access the qtip API until after tooltips are "lazy-loaded" 
-        setTimeout(function () {
-            $('#good-1').qtip('api').show()
-        }, 100);
-    });
-
-
-    function highlightAreaTags() {
-        // NOTE: this does not work on resized images
-        // TODO: workaround described here: https://github.com/kemayo/maphilight/issues/21
-        $('img').maphilight({
-            alwaysOn: true,
-            strokeColor: '#444',
-            fillOpacity: 0.5
-        });
-    }
-
-    function createTooltips() {
-        // Add a tooltip to the <area> with id='good-1'
-        var qtip_options = {
-            // Hide all others when a tooltip is activated
-            show: {
-                solo: true
-            },
-
-            // Do not hide tooltip when mouse leaves
-            // Hide when clicking on the <area>
-            hide: {
-                event: 'click'
-            },
-
-            position: {
-                my: 'right bottom',
-                at: 'center center'
-            },
-
-            // Set a CSS class
-            style: 'qtip-toolbar'
-
-        };
-
-        var tooltip_content = {
-            '#good-1': 'sample',
-            '#good-2': 'sample 2',
-            '#good-3': 'sample 3'
-        };
-
-        // Add s's properties to d
-        function extend(s, d) {
-            for (var key in s) {
-                d[key] = s[key];
-            }
-            return d;
-        }
-
-        for (var key in tooltip_content) {
-            $('area' + key).qtip(extend(qtip_options, {
-                content: tooltip_content[key]
-            }));
-        }
-    }
-</script>
+<script type="text/javascript" src="js/index.js"></script>
 
 </html>
