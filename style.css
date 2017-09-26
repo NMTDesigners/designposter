@@ -3,7 +3,7 @@
 @font-face {
 	font-family: 'Roboto';
 	font-style: normal;
-	font-weight: 400;
+	font-weight: normal;
 	src: url('font/Roboto-Regular.ttf');
 }
 @font-face {
@@ -15,28 +15,25 @@
 @font-face {
 	font-family: 'Roboto';
 	font-style: italic;
-	font-weight: 400;
+	font-weight: normal;
 	src: url('font/Roboto-Italic.ttf');
 }
 
 /* Animations */
 @keyframes appear {
 	from {
-		transform: rotate(-30deg) scale(0, 0);
-	}
-	from {
-		transform: rotate(0deg) scale(0, 0);
+        color: #00000000;
 	}
 }
 
 body {
 	font-family: 'Roboto', serif;
-	line-height: 3em;
 }
 
 .block {
 	width: 100%;
-	padding: 10em 0 10em 0;
+	padding: 0;
+    padding-bottom: 10em;
 }
 
 section {
@@ -78,6 +75,10 @@ section {
 p, h1, h2, h3, h4 {
 	text-align: center;
     margin: 50px 0;
+}
+
+p, h2, h3, h4 {
+    line-height: 1.5;
 }
 
 h1 {
