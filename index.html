@@ -33,18 +33,22 @@
             <h3>The poster below is good design. When you see it, praise it.</h2>
 
             <map class='good sample-imagemap' name='good-sample-map'>
-                <!-- Create a circle on the img at coordinates X=300px, Y=100px
-                    and radius=64 -->
-                <area id='good-1' shape='circle' coords='283,527,32'>
-                <area id='good-2' shape='circle' coords='244,43,32'>
-                <area id='good-3' shape='circle' coords='176,165,32'>
-                
+            <!-- Create a circle on the img at coordinates X=320px, Y=64px
+                and radius=64px. The 'content' tag is used by our JS code to
+                create a tooltip. -->
+            <area id='good-1' shape='circle' coords='360,64,32' 
+                content="The audience can quickly tell the poster is from Liberty University. The title does not distract the audience from the most important part, “Camp Fair 2012.”">
+            <area id='good-2' shape='circle' coords='185,160,32' 
+                content="Here is the attention grabber. By being the largest font size on the page, the audience is drawn to read it first.">
+            <area id='good-3' shape='circle' coords='75,300,32' 
+                content="The negative space prevents the poster from becoming cluttered and unreadable.">
+            <area id='good-4' shape='circle' coords='420,417,32' 
+                content="The user can read the information of the whole poster at a glance and understand the poster's purpose quickly.">
+            <area id='good-5' shape='circle' coords='123,590,32' 
+                content="Everything is paper! The design is cohesive and grabs the attention of the viewer.">
             </map>
 
             <div class='sample good-sample'>
-                <!-- <img style="position: relative; left: 190px; top: 160px; z-index: 3;" src='img/pin.svg'>
-                <img style="position: relative; left: 280px; top: 530px; z-index: 3;" src='img/pin.svg'>
-                <img style="position: relative; left: 400px; top: 700px; z-index: 3;" src='img/pin.svg'> -->
                 <img usemap='#good-sample-map' src='img/campfair2012.jpg' alt='A sample poster'>
             </div>
 
@@ -63,9 +67,14 @@
 
             <h3>The poster below is poor design. When you see it, call it out.</h2>
             <map class='bad sample-imagemap' name='bad-sample-map'>
-                <area id='bad-1' shape='circle' coords='398,97,16'>
-                <area id='bad-2' shape='circle' coords='101,44,16'>
-                <area id='bad-3' shape='circle' coords='100,200,16'>
+                <area id='bad-1' shape='circle' coords='101,44,16'
+                    content="The human eye isn't being drawn anywhere. It should be drawn to the title first but because of the lack of an “eye grabber,” most people will glance at the poster and never read it.">
+                <area id='bad-2' shape='circle' coords='398,97,16'
+                    content="Although having variety is good, having too many fonts and colors will clash and ruin the design! Choose colors that work together with a bit of contrast.">
+                <area id='bad-3' shape='circle' coords='100,200,16'
+                    content="The poster isn't clear on what is most important and what should be read first. The poster uses too many fonts, font sizes, and colors. With too many of these, the poster does not have a clear path for the audience to read.">
+                <area id='bad-4' shape='circle' coords='30,350,16'
+                    content="Here the poster is trying to finish a story it never started. It was never clear where the poster was designed for until the very end.">
             </map>
 
             <div class='sample bad-sample'>
